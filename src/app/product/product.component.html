@@ -1,0 +1,130 @@
+<!-- Button trigger  modal for adding product -->
+<button type="button" class="btn btn-success b" data-bs-toggle="modal" data-bs-target="#add-product">
+    click here to add product
+</button>
+
+<!-- Modal for adding product details -->
+<div class="modal fade m" id="add-product" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Product Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <form #productForm="ngForm">
+                        <div class="card">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="name">Enter product name</label>
+                                    <input required type="text" [(ngModel)]="product.name" id="name" name="name"
+                                        placeholder="enter product name" class="form-control validate mt-1 mb-1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Enter product price</label>
+                                    <input required type="number" [(ngModel)]="product.price" id="price" name="price"
+                                        placeholder="enter product price" class="form-control validate mt-1 mb-1">
+                                </div>
+                                <div class="form-group">
+
+                                    <input [disabled]=!productForm.valid type="button" value="add"
+                                        class="add btn btn-success mt-1 mb-1" (click)="saveNewProduct()">
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close" type="button" class="btn btn-warning" data-bs-dismiss="modal"
+                    (click)="resetForm()">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- displaying product details -->
+<div class="container">
+    <h6>Product Details...</h6>
+    <table class="table " width="100%">
+        <thead>
+            <tr class="table-danger">
+                <th>Product id</th>
+                <th>Product name</th>
+                <th>Product price</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+        <tbody class="table-info">
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td><button id="edit" type="button" class="btn btn-warning" (click)="getProductById(product.id)"
+                        data-bs-toggle="modal" data-bs-target="#edit-product">Edit</button>
+                    <button id="delete" type="button" class="btn btn-danger"
+                        (click)="deleteProduct(product.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- Modal for edting product details -->
+<div class="modal fade m" id="edit-product" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Product Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <form #editProductForm="ngForm">
+                        <div class="card">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="price"> product id</label>
+                                    <input required type="number" [(ngModel)]="productEdit.id" id="id" name="id"
+                                     class="form-control validate mt-1 mb-1" readonly="readonly">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Enter product name</label>
+                                    <input required type="text" [(ngModel)]="productEdit.name" id="name" name="name"
+                                        placeholder="enter product name" class="form-control validate mt-1 mb-1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Enter product price</label>
+                                    <input required type="number" [(ngModel)]="productEdit.price" id="price" name="price"
+                                        placeholder="enter product price" class="form-control validate mt-1 mb-1">
+                                </div>
+                                <div class="form-group">
+
+                                    <input [disabled]=!editProductForm.valid type="button" value="save changes"
+                                        class="add btn btn-success mt-1 mb-1" (click)="saveChanges()">
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="edit-close" type="button" class="btn btn-warning" data-bs-dismiss="modal"
+                (click)="resetEditForm()"  >Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

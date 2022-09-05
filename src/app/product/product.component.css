@@ -1,0 +1,47 @@
+thead tr{
+    color: red;
+    text-align: center;
+}
+tbody tr{
+    color: blue;
+    text-align: center;
+}
+h6{color: green;
+    font-size: 20px;
+}
+.card{
+    width: 100%;
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+    border-color: blue;
+    border-width: 3px;
+}
+input{
+    margin-left:1.3cm;
+    border-radius: 20px;
+    border-color: orange;
+    border-width:2px;
+    
+}
+label{margin-left:1.5cm ;
+    color: darkmagenta;
+    margin-top:0.5cm;
+}
+.b{
+    margin-left: 3.2cm;
+    margin-bottom: 0.5cm;
+    margin-top: 1.5cm;
+    border-radius: 1cm;
+    background-color: rgb(255, 0, 212);
+}
+h5{
+    color: darkorchid;
+    margin-left: 3cm;
+    font-size:160%;
+}
+.add{
+    background-color: rgb(13, 0, 255);
+}
+
+#close{border-radius: 1cm;}
+#edit{margin-right: 0.8cm;}
