@@ -50,7 +50,8 @@
 
 <!-- displaying product details -->
 <div class="container">
-    <h6>Product Details...</h6>
+    <h6 *ngIf="products.length!==0">Product Details...</h6>
+    <h5 *ngIf="products.length===0" class="nodata">Oops! No data available</h5>
     <table class="table " width="100%">
         <thead>
             <tr class="table-danger">
