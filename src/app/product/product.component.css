@@ -42,6 +42,11 @@ h5{
 .add{
     background-color: rgb(13, 0, 255);
 }
+.nodata{
+    margin-left: -0.1cm;
+    color: darkorchid;
+    font-style: italic;
+}
 
 #close{border-radius: 1cm;}
 #edit{margin-right: 0.8cm;}
